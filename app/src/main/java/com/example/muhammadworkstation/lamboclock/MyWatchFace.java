@@ -476,10 +476,10 @@ public class MyWatchFace extends CanvasWatchFaceService {
             canvas.translate(bounds.width() / 2, bounds.height());
 
 
-            // drawText(canvas);
+
             /*drawStandAloneNumber(canvas,bounds);*/
-            // drawProgressAnimation(canvas);
-            drawStatusMessage(canvas);
+
+
 
            // drawIndicator(canvas, bounds);
             /*drawComDistance(canvas,bounds);*/
@@ -795,17 +795,7 @@ public class MyWatchFace extends CanvasWatchFaceService {
             segemntDashArcRect=new RectF();
         }
 
-        private void drawStatusMessage(Canvas canvas) {
 
-            if (status==CONNECTED){
-                messgae="connected";
-            }else if (status==CONNECTING){
-                messgae="connecting";
-            }else if (status==CHECK_LOCATION){
-                messgae="Check your location";
-            }
-            //  canvas.drawText(messgae, -correct(messgae, VC.W, statusMessagePaint), circleRatio + 50, statusMessagePaint);
-        }
 
 
 
@@ -970,14 +960,14 @@ public class MyWatchFace extends CanvasWatchFaceService {
 
         private void drawNumbers(Canvas canvas, Rect bounds) {
             textPaint.setTextSize(circleRatio / 8);
-            int numbers=0;
+            int numbers=1;
 
-            for (int i=0;i<275;i+=30){
+            for (int i=0;i<360;i+=30){
 
-                canvas.drawText(String.valueOf(numbers), getX(i, circleRatio / 1.3f, 90) - correct(String.valueOf(numbers), W, textPaint), getY(i, circleRatio / 1.3, 90) + correct(String.valueOf(numbers), H, textPaint), textPaint);
+                canvas.drawText(String.valueOf(numbers), getX(i, circleRatio / 1.3f, -60) - correct(String.valueOf(numbers), W, textPaint), getY(i, circleRatio / 1.3, -60) + correct(String.valueOf(numbers), H, textPaint), textPaint);
 
 
-                numbers+=20;
+                numbers+=1;
             }
         }
 
